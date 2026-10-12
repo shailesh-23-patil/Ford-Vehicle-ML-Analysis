@@ -1,18 +1,16 @@
 # Ford Vehicle ML Analysis
 
-Repository: Ford-Vehicle-ML-Analysis
-
-This project analyzes used Ford vehicle data to understand the main drivers of car prices and build machine learning models that can predict a vehicle's selling price from its features.
+A machine learning project that analyzes used Ford vehicle data to identify the key factors influencing car prices and predict selling prices using regression models.
 
 ## Project Goal
 
-The objective is to study how attributes such as year, mileage, engine size, horsepower-like extracted variables, fuel type, and model influence used Ford car prices. The notebook also demonstrates proper machine learning workflow practices, including data cleaning, train/test splitting before preprocessing, and model evaluation.
+The objective is to understand how vehicle attributes such as manufacturing year, mileage, model, fuel type, transmission, tax, MPG, and engine size affect used Ford car prices. The project demonstrates a complete machine learning workflow, from data cleaning and exploratory data analysis to model training and evaluation.
 
 ## Dataset
 
-- File: `ford.csv`
-- Target variable: `price`
-- Features include:
+- **Dataset:** `ford.csv`
+- **Target variable:** `price`
+- **Features:**
   - `year`
   - `model`
   - `mileage`
@@ -24,75 +22,113 @@ The objective is to study how attributes such as year, mileage, engine size, hor
 
 ## Data Cleaning and Quality Checks
 
-The project includes a strong data-quality review before modeling:
+The project performs data-quality checks before model training:
 
-- checked for duplicate rows
-- detected impossible years
-- removed zero engine size values
-- stripped extra spaces from model names
-- kept unusually high MPG values because they can be valid in some cases
+- Identifies duplicate records.
+- Checks for implausible manufacturing years.
+- Removes records with zero engine size where appropriate.
+- Removes unnecessary whitespace from model names.
+- Reviews unusually high MPG values before deciding whether to retain them.
 
-This makes the analysis more reliable and demonstrates professional data-science practice.
+These steps help improve dataset consistency and reliability.
 
-## Exploratory Data Analysis
+## Exploratory Data Analysis (EDA)
 
-The notebook explores the relationships between price and the main features:
+The notebook explores relationships between vehicle prices and different attributes, including:
 
-- price distribution is right-skewed
-- newer vehicles generally cost more
-- higher mileage is associated with lower prices
-- automatic transmission and larger engine sizes often correlate with higher price
-- model type matters significantly, with some models priced much higher than others
+- Distribution of vehicle prices.
+- Relationship between manufacturing year and price.
+- Effect of mileage on resale value.
+- Price differences across models and fuel types.
+- Influence of transmission type and engine size on vehicle prices.
 
-## Modeling Approach
+Visualizations help identify patterns, trends, and potential relationships in the dataset.
 
-The workflow uses a scikit-learn pipeline that separates preprocessing from model training:
+## Machine Learning Approach
 
-- train/test split performed first
-- numerical features standardized
-- categorical features encoded using one-hot encoding
-- comparison between:
-  - Linear Regression
-  - Random Forest Regressor
-- evaluation using:
-  - R2 score
-  - MAE
-  - RMSE
-  - cross-validation
+The project uses a structured machine learning workflow with Scikit-learn.
 
-This avoids data leakage and produces more trustworthy evaluation results.
+### Data Preprocessing
+- Separates training and testing data before fitting preprocessing transformations.
+- Standardizes numerical features where required.
+- Applies one-hot encoding to categorical features.
+- Uses pipelines to organize preprocessing and model training.
+
+### Models
+- Linear Regression
+- Random Forest Regressor
+
+### Evaluation Metrics
+- R² Score
+- Mean Absolute Error (MAE)
+- Root Mean Squared Error (RMSE)
+- Cross-validation
+
+These metrics help compare model performance and assess prediction quality on unseen data.
 
 ## Key Insights
 
-- Car price is strongly influenced by age, mileage, and model type.
-- Newer cars command higher value.
-- Engine size and transmission type also affect price significantly.
-- The random forest model captured non-linear patterns better than a simple linear model.
-- One-hot encoding was preferred over label encoding for a linear model because ordinal categories do not have a true numeric meaning.
+The analysis investigates the following potential patterns:
 
-## Tech Stack
+- Newer vehicles may have higher selling prices.
+- Higher mileage may be associated with lower prices.
+- Vehicle model, engine size, and transmission may influence price.
+- Random Forest can capture nonlinear relationships that Linear Regression may not represent effectively.
+
+Actual findings and model comparisons are available in the Jupyter Notebook.
+
+## Technology Stack
 
 - Python
 - Pandas
 - NumPy
-- Seaborn
 - Matplotlib
-- scikit-learn
+- Seaborn
+- Scikit-learn
 - Jupyter Notebook
 
-## Files in This Project
+## Project Structure
 
-- `ford_fixed.ipynb` — full analysis notebook
-- `ford.csv` — dataset used for modeling
+```text
+Ford-Vehicle-ML-Analysis/
+├── ford.csv
+├── ford_fixed.ipynb
+└── README.md
+```
 
 ## How to Run
 
-Open the notebook in Jupyter or VS Code and run the cells sequentially:
+1. Clone or download this repository.
+2. Install Python and Jupyter Notebook.
+3. Install the required libraries:
 
-```bash
-jupyter notebook ford_fixed.ipynb
-```
+   ```bash
+   pip install pandas numpy matplotlib seaborn scikit-learn jupyter
+   ```
 
-## Project Summary
+4. Open the project directory in Command Prompt.
+5. Launch the notebook:
 
-This project is a practical machine learning case study focused on regression, data cleaning, and model comparison. It is especially useful for showcasing real-world data handling and proper ML pipeline design in interviews or portfolio work.
+   ```bash
+   jupyter notebook ford_fixed.ipynb
+   ```
+
+6. Run the notebook cells sequentially.
+
+## Project Objectives
+
+- Perform data cleaning and exploratory data analysis.
+- Understand factors associated with used Ford vehicle prices.
+- Build and compare regression models.
+- Apply appropriate preprocessing and evaluation techniques.
+- Demonstrate practical machine learning skills through a real-world dataset.
+
+## Conclusion
+
+Ford Vehicle ML Analysis is a practical regression project demonstrating data preprocessing, visualization, feature handling, model training, and performance evaluation. It can serve as a machine learning portfolio project for students and aspiring data analysts.
+
+---
+
+**Author:** Shailesh Patil
+
+**Project Type:** Machine Learning — Regression
